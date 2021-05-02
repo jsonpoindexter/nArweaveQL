@@ -1,37 +1,16 @@
-const URL = 'https://arweave.net/graphql'
-import * as fetch from 'node-fetch'
+import httpClient from './httpClient'
+import * as queries from './queries'
 
-export async function transactionById(ids: string[]): Promise<void> {
-  const query = `query($ids: [ID!]) {
-      transactions(ids: $ids) {
-          edges {
-              node {
-                  id
-              }
-          }
-      }
-  }`
-  const response = await fetch(URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({
-      query,
-      variables: { ids },
-    }),
+/**
+ * Retrieve one or more transactions by specifying their IDs in an array
+ * https://gql-guide.vercel.app/#transaction
+ * @param {string[]} ids
+ * @returns {Promise<unknown>}
+ */
+export async function transactionsByIds(ids: string[]): Promise<unknown> {
+  const body = JSON.stringify({
+    query: queries.transactions,
+    variables: { ids },
   })
-  if (response.status !== 200) {
-    throw Error(await response.text())
-  }
-  return await response.json()
+  return await httpClient(body)
 }
-
-;(async () => {
-  try {
-    console.log(await transactionById(['123']))
-  } catch (e) {
-    console.log(e)
-  }
-})()
