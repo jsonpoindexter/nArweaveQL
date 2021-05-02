@@ -5,7 +5,7 @@ A simple and lightweight wrapper for nodejs arweave GraphQL queries
 
 ### Queries
 - [ ] [Transaction by Pagination](https://gql-guide.vercel.app/#pagination)
-- [ ] [Transactions by IDs](https://gql-guide.vercel.app/#transaction)
+- [X] [Transactions by IDs](https://gql-guide.vercel.app/#transaction)
 - [ ] [Transactions by Recipients](https://gql-guide.vercel.app/#recipients)
 - [ ] [Transactions by Owners](https://gql-guide.vercel.app/#owners)
 - [ ] [Transactions by Tags](https://gql-guide.vercel.app/#tags)
