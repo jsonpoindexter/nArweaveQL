@@ -1,0 +1,32 @@
+{
+  "name": "narweave",
+  "version": "1.0.0",
+  "description": "A simple and lightweight wrapper for arweave GraphQL queries",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build-ts && npm run lint",
+    "build-ts": "tsc",
+    "debug": "npm run build && npm run watch-debug",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
+    "watch": "npm run build-ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\"",
+    "watch-node": "nodemon dist/index.js",
+    "watch-test": "npm run test -- --watchAll",
+    "watch-ts": "tsc -w",
+    "format": "prettier --write ./src/**/*.{js,ts}"
+  },
+  "author": "Jason Poindexter",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/eslint": "^7.2.10",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "concurrently": "^6.0.2",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  }
+}
