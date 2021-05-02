@@ -11,9 +11,26 @@ describe('Get transactions by Ids', () => {
     const response = await transactionsByIds([id])
     return expect(response).toEqual([{ id }])
   })
+  it('should return a populated response when supplied a valid Id and owner address', async () => {
+    const id = 'tmDmLDhGGaA_BAw8JETCB3n_fB4ItHadagfeeBoS06M'
+    const response = await transactionsByIds([id], {
+      owner: { address: true },
+    })
+    return expect(response).toEqual([
+      {
+        id: 'tmDmLDhGGaA_BAw8JETCB3n_fB4ItHadagfeeBoS06M',
+        owner: {
+          address: '-5VMrJ6SIbT2yQT0cl_ftRJlDj4AzEq0e8ew8rYCNsE',
+        },
+      },
+    ])
+  })
   it('should return 101 transactions when querying for 101 transactions', async () => {
     const ids: string[] = one01TransactionsIds
-    const response = await transactionsByIds(ids)
+    const response = await transactionsByIds(ids, {
+      anchor: true,
+      owner: { address: true },
+    })
     return expect(response.length).toEqual(101)
   })
 })

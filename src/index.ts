@@ -1,6 +1,6 @@
-import { Transaction } from 'query'
+import { Fields, Options, Transaction } from 'query'
 import httpClient from './httpClient'
-import * as queries from './queries'
+import { transactionQuery } from './queries'
 
 /**
  * Retrieve one or more transactions by specifying their IDs in an array
@@ -8,12 +8,16 @@ import * as queries from './queries'
  * https://gql-guide.vercel.app/#transaction
  *
  * @param {string[]} ids
+ * @param fields
  * @returns {Promise<Transaction>}
  */
-export async function transactionsByIds(ids: string[]): Promise<Transaction[]> {
+export async function transactionsByIds(
+  ids: string[],
+  fields?: Options,
+): Promise<Transaction[]> {
   const first = 100
   const body = JSON.stringify({
-    query: queries.transactions,
+    query: transactionQuery(fields),
     variables: { ids: ids.splice(0, first), first },
   })
   const response = await httpClient(body)

@@ -47,3 +47,28 @@ export interface Transaction {
     id: string
   }
 }
+
+export interface Options {
+  anchor?: boolean
+  signature?: boolean
+  recipient?: boolean
+  owner?: {
+    address?: boolean
+    key?: boolean
+  }
+  fee?: { winston?: boolean; ar?: boolean }
+  quantity?: { winston?: boolean; ar?: boolean }
+  data?: { size?: boolean; type?: boolean }
+  tags?: { name?: boolean; value?: boolean }
+  block?: {
+    id?: boolean
+    timestamp?: boolean
+    height?: boolean
+    previous?: boolean
+  }
+  parent?: {
+    id?: boolean
+  }
+}
+
+export type Fields = (string | unknown)[]
