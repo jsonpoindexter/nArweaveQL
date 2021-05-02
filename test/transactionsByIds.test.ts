@@ -13,7 +13,7 @@ describe('Get transactions by Ids', () => {
   })
   it('should return 101 transactions when querying for 101 transactions', async () => {
     const ids: string[] = one01TransactionsIds
-    const response = await transactionsByIds(ids, 101)
+    const response = await transactionsByIds(ids)
     return expect(response.length).toEqual(101)
   })
 })
