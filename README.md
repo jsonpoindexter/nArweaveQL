@@ -3,7 +3,19 @@ A simple and lightweight wrapper for nodejs arweave GraphQL queries
 
 [Arweave GraphQL Guide](https://gql-guide.vercel.app/)
 
-### Queries
+### API
+
+### [Get transactions by IDs](https://gql-guide.vercel.app/#transaction)
+You may retrieve one or more transactions by specifying their IDs in an array.
+
+*Note*: Call may take a long time if fetching many transactions (calls are made in batches of 100)
+#### `narweave.transactionsByIds(IDs)`
+#### Params
+* `ids: string[]` - Array of transaction IDs
+#### Response
+Array<[Transaction]>
+
+### API Progress
 - [ ] [Transaction by Pagination](https://gql-guide.vercel.app/#pagination)
 - [X] [Transactions by IDs](https://gql-guide.vercel.app/#transaction)
 - [ ] [Transactions by Recipients](https://gql-guide.vercel.app/#recipients)
