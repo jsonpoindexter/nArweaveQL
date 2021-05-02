@@ -1,7 +1,8 @@
 import fetch from 'node-fetch'
+import { QueryResponse } from 'query'
 const URL = 'https://arweave.net/graphql'
 
-export default async (body: string): Promise<unknown> => {
+export default async (body: string): Promise<QueryResponse> => {
   const response = await fetch(URL, {
     method: 'POST',
     headers: {
