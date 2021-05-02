@@ -1,7 +1,7 @@
 {
   "name": "narweave",
   "version": "1.0.0",
-  "description": "A simple and lightweight wrapper for arweave GraphQL queries",
+  "description": "A simple and lightweight wrapper for nodejs arweave GraphQL queries",
   "main": "index.js",
   "scripts": {
     "build": "npm run build-ts && npm run lint",
@@ -18,9 +18,12 @@
   "author": "Jason Poindexter",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^4.2.17",
     "@types/eslint": "^7.2.10",
+    "@types/node-fetch": "^2.5.10",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "chai": "^4.3.4",
     "concurrently": "^6.0.2",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
@@ -28,5 +31,8 @@
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
   }
 }
