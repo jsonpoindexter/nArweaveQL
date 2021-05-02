@@ -1,5 +1,5 @@
-export const transactions = `query($ids: [ID!]) {
-      transactions(ids: $ids) {
+export const transactions = `query($ids: [ID!], $first: Int) {
+      transactions(ids: $ids, first: $first) {
           edges {
               node {
                   id

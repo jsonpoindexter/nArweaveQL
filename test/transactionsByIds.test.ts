@@ -1,3 +1,4 @@
+import one01TransactionsIds from './101transactionIds'
 import { transactionsByIds } from '../src'
 
 describe('Get transactions by Ids', () => {
@@ -9,5 +10,10 @@ describe('Get transactions by Ids', () => {
     const id = 'tmDmLDhGGaA_BAw8JETCB3n_fB4ItHadagfeeBoS06M'
     const response = await transactionsByIds([id])
     return expect(response).toEqual([{ id }])
+  })
+  it('should return 101 transactions when querying for 101 transactions', async () => {
+    const ids: string[] = one01TransactionsIds
+    const response = await transactionsByIds(ids, 101)
+    return expect(response.length).toEqual(101)
   })
 })
