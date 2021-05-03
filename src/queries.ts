@@ -1,16 +1,15 @@
-import { Fields } from 'query'
+import { Fields, QueryResponse, Transaction } from 'query'
 
 /**
  * Parse Field interface to GraphQL Query fields
  * @param object
- * @param {number} level
  * @returns {string}
  */
-const parse = (object: unknown, level = 0): string => {
+const parse = (object: unknown): string => {
   return Object.entries(object)
     .map(([key, value]) => {
       if (value) {
-        if (typeof value === 'object') return `${key} { ${parse(value, 10)} }`
+        if (typeof value === 'object') return `${key} { ${parse(value)} }`
         else return key
       }
     })
@@ -18,9 +17,10 @@ const parse = (object: unknown, level = 0): string => {
 }
 
 export const transactionQuery = (fields?: Fields): string => {
-  return `query($ids: [ID!], $first: Int) {
-      transactions(ids: $ids, first: $first) {
+  return `query($ids: [ID!], $first: Int, $cursor: String) {
+      transactions(ids: $ids, first: $first, after: $cursor) {
           edges {
+            cursor
               node {
                   id
                   ${fields ? parse(fields) : ''}
@@ -29,3 +29,8 @@ export const transactionQuery = (fields?: Fields): string => {
       }
   }`
 }
+
+export const QueryResponseToTransactions = (
+  response: QueryResponse,
+): Transaction[] =>
+  response.data.transactions.edges.flatMap((edge) => edge.node)

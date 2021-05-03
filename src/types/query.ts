@@ -4,8 +4,8 @@
 export interface QueryResponse {
   data: {
     transactions: {
-      cursor: string
       edges: {
+        cursor: string
         node: Transaction
       }[]
     }
