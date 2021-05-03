@@ -2,16 +2,15 @@ import { Fields, QueryResponse, Transaction } from 'query'
 
 /**
  * Parse Field interface to GraphQL Query fields
- * @param object
  * @returns {string}
+ * @param fields
  */
-const parse = (object: unknown): string => {
-  return Object.entries(object)
-    .map(([key, value]) => {
-      if (value) {
-        if (typeof value === 'object') return `${key} { ${parse(value)} }`
-        else return key
-      }
+const parse = (fields: Fields): string => {
+  return fields
+    .map((field) => {
+      if (typeof field === 'object')
+        return `${Object.keys(field)[0]} { ${parse(Object.values(field)[0])} }`
+      else return field
     })
     .join(' ')
 }
