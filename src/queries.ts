@@ -1,4 +1,4 @@
-import { Options } from 'query'
+import { Fields } from 'query'
 
 /**
  * Parse Field interface to GraphQL Query fields
@@ -17,7 +17,7 @@ const parse = (object: unknown, level = 0): string => {
     .join(' ')
 }
 
-export const transactionQuery = (fields?: Options): string => {
+export const transactionQuery = (fields?: Fields): string => {
   return `query($ids: [ID!], $first: Int) {
       transactions(ids: $ids, first: $first) {
           edges {

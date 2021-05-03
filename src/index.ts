@@ -13,7 +13,7 @@ import { transactionQuery } from './queries'
  */
 export async function getTransactionsByIds(
   ids: string[],
-  fields?: Options,
+  fields?: Fields,
 ): Promise<Transaction[]> {
   const first = 100
   const body = JSON.stringify({

@@ -48,7 +48,7 @@ export interface Transaction {
   }
 }
 
-export interface Options {
+export interface Fields {
   anchor?: boolean
   signature?: boolean
   recipient?: boolean
@@ -70,5 +70,3 @@ export interface Options {
     id?: boolean
   }
 }
-
-export type Fields = (string | unknown)[]
