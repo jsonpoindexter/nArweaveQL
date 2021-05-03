@@ -31,8 +31,8 @@ const parse = (fields: Fields): string => {
 }
 
 export const transactionQuery = (fields?: Fields): string => {
-  return `query($ids: [ID!], $first: Int, $cursor: String) {
-      transactions(ids: $ids, first: $first, after: $cursor) {
+  return `query($ids: [ID!], $recipients: [String!], $first: Int, $cursor: String) {
+      transactions(ids: $ids, recipients: $recipients, first: $first, after: $cursor) {
           edges {
             cursor
               node {

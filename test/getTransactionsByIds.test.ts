@@ -39,21 +39,7 @@ describe('Get transactions by Ids', () => {
     'should return a fully populated response when supplied a valid Id and owner address',
     async () => {
       const id = 'tmDmLDhGGaA_BAw8JETCB3n_fB4ItHadagfeeBoS06M'
-      const transactions = await getTransactionsByIds(
-        [id],
-        [
-          'anchor',
-          'signature',
-          'recipient',
-          { owner: ['address', 'key'] },
-          { fee: ['winston', 'ar'] },
-          { quantity: ['winston', 'ar'] },
-          { data: ['size', 'type'] },
-          { tags: ['name', 'value'] },
-          { block: ['id', 'timestamp', 'height', 'previous'] },
-          { parent: ['id'] },
-        ],
-      )
+      const transactions = await getTransactionsByIds([id], '*')
       expect(transactions).toEqual([
         {
           anchor:
