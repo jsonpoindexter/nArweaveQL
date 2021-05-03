@@ -1,11 +1,26 @@
 import { Fields, QueryResponse, Transaction } from 'query'
 
+// Use when 'fields' parameter is passed in as '*'
+const ALL_FIELDS: Fields = [
+  'anchor',
+  'signature',
+  'recipient',
+  { owner: ['address', 'key'] },
+  { fee: ['winston', 'ar'] },
+  { quantity: ['winston', 'ar'] },
+  { data: ['size', 'type'] },
+  { tags: ['name', 'value'] },
+  { block: ['id', 'timestamp', 'height', 'previous'] },
+  { parent: ['id'] },
+]
+
 /**
  * Parse Field interface to GraphQL Query fields
  * @returns {string}
  * @param fields
  */
 const parse = (fields: Fields): string => {
+  if (fields === '*') fields = ALL_FIELDS
   return fields
     .map((field) => {
       if (typeof field === 'object')

@@ -23,7 +23,7 @@ You may retrieve one or more of the latest transactions.
 #### nArweave.getTransactions(count, *fields*)
 #### Params
 * `count: number` ( min: 1 ) - Number of transactions to fetch
-* `fields: Fields` Optional fields returned in the response object (example: `['signature', { owner: ['address'] }]`)
+* `fields: Fields` Optional fields returned in the response object (example: `['signature', { owner: ['address'] }]` or `'*'` for all fields)
 #### Response
 Array<[Transaction]>
 
@@ -33,6 +33,6 @@ You may retrieve one or more transactions by specifying their IDs in an array.
 #### `nArweave.getTransactionsByIds(IDs)`
 #### Params
 * `ids: string[]` - Array of transaction IDs
-* `fields: Fields` Optional fields returned in the response object (example: `['signature', { owner: ['address'] }]`)
+* `fields: Fields` Optional fields returned in the response object (example: `['signature', { owner: ['address'] }]` or `'*'` for all fields)
 #### Response
 Array<[Transaction]>

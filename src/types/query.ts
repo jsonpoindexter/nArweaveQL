@@ -48,15 +48,17 @@ export interface Transaction {
   }
 }
 
-export type Fields = Array<
-  | 'anchor'
-  | 'signature'
-  | 'recipient'
-  | { owner: Array<'address' | 'key'> }
-  | { fee: Array<'winston' | 'ar'> }
-  | { quantity: Array<'winston' | 'ar'> }
-  | { data: Array<'size' | 'type'> }
-  | { tags: Array<'name' | 'value'> }
-  | { block: Array<'id' | 'timestamp' | 'height' | 'previous'> }
-  | { parent: Array<'id'> }
->
+export type Fields =
+  | '*'
+  | Array<
+      | 'anchor'
+      | 'signature'
+      | 'recipient'
+      | { owner: Array<'address' | 'key'> }
+      | { fee: Array<'winston' | 'ar'> }
+      | { quantity: Array<'winston' | 'ar'> }
+      | { data: Array<'size' | 'type'> }
+      | { tags: Array<'name' | 'value'> }
+      | { block: Array<'id' | 'timestamp' | 'height' | 'previous'> }
+      | { parent: Array<'id'> }
+    >
