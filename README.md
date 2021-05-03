@@ -17,7 +17,7 @@ A simple and lightweight wrapper for nodejs [Arweave GraphQL queries](https://gq
 You may retrieve one or more transactions by specifying their IDs in an array.
 
 *Note*: Call may take a long time if fetching many transactions (calls are made in batches of 100)
-#### `nArweave.transactionsByIds(IDs)`
+#### `nArweave.getTransactionsByIds(IDs)`
 #### Params
 * `ids: string[]` - Array of transaction IDs
 #### Response

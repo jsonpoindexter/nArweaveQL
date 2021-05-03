@@ -11,7 +11,7 @@ import { transactionQuery } from './queries'
  * @param fields
  * @returns {Promise<Transaction>}
  */
-export async function transactionsByIds(
+export async function getTransactionsByIds(
   ids: string[],
   fields?: Options,
 ): Promise<Transaction[]> {
@@ -26,7 +26,7 @@ export async function transactionsByIds(
     (edge) => edge.node,
   )
   if (ids.length) {
-    return [...transactions, ...(await transactionsByIds(ids))]
+    return [...transactions, ...(await getTransactionsByIds(ids))]
   } else {
     return transactions
   }
