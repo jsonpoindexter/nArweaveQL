@@ -26,9 +26,12 @@ describe('Get latest transactions', () => {
       expect(transactions[0].owner.key).toBeDefined()
     },
   )
-  test.concurrent("Should failed when a 'count' 0 is defined", async () => {
-    await expect(getTransactions(0, [{ owner: ['key'] }])).rejects.toThrow(
-      "'count' must be greater than 1",
-    )
-  })
+  test.concurrent(
+    "Should throw an error when a 'count' of 0 is defined",
+    async () => {
+      await expect(getTransactions(0, [{ owner: ['key'] }])).rejects.toThrow(
+        "'count' must be greater than 1",
+      )
+    },
+  )
 })
