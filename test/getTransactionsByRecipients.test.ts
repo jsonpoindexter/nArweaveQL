@@ -1,6 +1,6 @@
 import { getTransactionsByRecipients } from '../src'
 
-describe.only('Get transactions by recipients', () => {
+describe('Get transactions by recipients', () => {
   // Note: Using my own wallet address is not a good / stable test
   test.concurrent(
     "Should return the only 2 transactions in the recipient's wallet",
