@@ -1,4 +1,4 @@
-# nArweave
+# nArweaveQL
 A simple and lightweight wrapper for nodejs [Arweave GraphQL queries](https://gql-guide.vercel.app/)
 
 ### API Progress
@@ -20,7 +20,7 @@ only be returned if specified in the *optional* `field: Fields`
 ### [Get Latest Transaction(s)](https://gql-guide.vercel.app/#pagination)
 Retrieve one or more of the latest transactions.
 
-#### nArweave.getTransactions(count, *fields*)
+#### nArweaveQL.getTransactions(count, *fields*)
 #### Params
 * `count: number` ( min: 1 ) - Number of transactions to fetch
 * `fields: Fields` Optional fields returned in the response object (example: `['signature', { owner: ['address'] }]` or `'*'` for all fields)
@@ -30,7 +30,7 @@ Array<[Transaction]>
 ### [Get Transactions by IDs](https://gql-guide.vercel.app/#transaction)
 Retrieve one or more transactions by specifying their IDs in an array.
 
-#### `nArweave.getTransactionsByIds(IDs)`
+#### `nArweaveQL.getTransactionsByIds(IDs)`
 #### Params
 * `ids: string[]` - Array of transaction IDs
 * `fields: Fields` Optional fields returned in the response object (example: `['signature', { owner: ['address'] }]` or `'*'` for all fields)
@@ -41,7 +41,7 @@ Array<[Transaction]>
 
 Retrieve one or more recipients by specifying their address(es) in an array.
 
-#### nArweave.getTransactionsByRecipients(recipients, *options*)
+#### nArweaveQL.getTransactionsByRecipients(recipients, *options*)
 #### Params
 * `recipients: string[]` Array of recipient IDs
 * `options` Optional
