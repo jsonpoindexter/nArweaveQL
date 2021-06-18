@@ -12,8 +12,7 @@ A simple and lightweight wrapper for nodejs [Arweave GraphQL queries](https://gq
 
 
 ### API
-All Transaction queries will automatically include the transaction id(s) in the response, other returned fields will 
-only be returned if specified in the *optional* `field: Fields`
+All Transactions returned will automatically include all avaliable fields in the response if no fields are specified in the *optional* `field: Fields`
 
 *Note*: Calls may take a long time if fetching many transactions (calls are made in batches of 100)
 
